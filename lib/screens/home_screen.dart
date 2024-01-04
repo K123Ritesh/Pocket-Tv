@@ -20,10 +20,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    // _scrollController = ScrollController()
-    //   ..addListener(() {
-    //     context.bloc<AppBarCubit>().setOffset(_scrollController.offset);
-    //   });
+    _scrollController = ScrollController()
+      ..addListener(() {
+        final appBarCubit = context.read<AppBarCubit>();
+        appBarCubit.setOffset(_scrollController.offset);
+      });
     super.initState();
   }
 
